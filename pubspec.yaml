@@ -37,6 +37,17 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_native_splash: ^2.4.7
   google_fonts: ^8.0.2
+  fluttertoast: ^9.0.0
+  flutter_svg: ^2.0.10
+  carousel_slider: ^5.1.2
+  extended_image: ^8.0.0
+  firebase_core: ^4.6.0
+  firebase_auth: ^6.3.0
+  google_sign_in: ^6.2.1
+  cloud_firestore: ^6.2.0
+  bloc: ^9.2.0
+  flutter_bloc: ^9.1.1
+  shared_preferences: ^2.5.5
 
 dev_dependencies:
   flutter_test:
@@ -64,6 +75,11 @@ flutter:
   assets:
      - assets/images/splash/
      - assets/images/on_boarding/
+     - assets/images/images/
+     - assets/svg_icons/
+     - assets/images/
+     - assets/images/movies_images/
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
