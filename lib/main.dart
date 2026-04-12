@@ -1,9 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/firebase_utiles/firebase_options.dart';
 import 'core/routes_manager/route_generator.dart';
 import 'core/routes_manager/routes.dart';
+import 'features/auth/cubit/auth_cubit.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -17,12 +25,16 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) =>
-       MaterialApp(
-           debugShowCheckedModeBanner: false,
-           home: child,
-           onGenerateRoute: RouteGenerator.getRoute,
-           initialRoute: Routes.onBoardingRoute,
-      ),
+       BlocProvider(
+         create: (cotext) => AuthCubit(),
+         child: MaterialApp(
+             debugShowCheckedModeBanner: false,
+             home: child,
+             onGenerateRoute: RouteGenerator.getRoute,
+             // initialRoute: Routes.onBoardingRoute,
+           initialRoute: Routes.SignUpRoute,
+               ),
+       ),
     );
   }
 }
