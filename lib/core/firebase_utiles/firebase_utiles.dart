@@ -1,18 +1,74 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-
 import '../../models/movies/movie_detail_model.dart';
 import '../../models/user/my_user_model.dart';
 class FirebaseUtils {
-//
-  static CollectionReference<MovieDetailModel> eventCollectionRef(String uid){
-    return  userCollectionRef().doc(uid).collection(MovieDetailModel.collectionName).withConverter<MovieDetailModel>(
+  //watch
+  static CollectionReference<MovieDetailModel> watchMovieCollectionRef(String uid){
+    return  userCollectionRef().doc(uid).collection(MovieDetailModel.watchCollectionName).withConverter<MovieDetailModel>(
       fromFirestore: (snapshot, options) => MovieDetailModel.fromJson(snapshot.data()!),
       toFirestore: (value, options) => value.toJson(),);
   }
-  //
+  //add watchMovies
+  static Future<void> toggleWatchlist(String uid, MovieDetailModel movie) async {
+    // Use the movie ID as the document ID for easy reference
+    final docRef = watchMovieCollectionRef(uid).doc(movie.id);
+    // movie.id =docRef.id;
+    final docSnapshot = await docRef.get();
+    if (docSnapshot.exists) {
+      // If it exists, remove it
+      await docRef.delete();
+      print("Movie removed from watchlist");
+    } else {
+      // If it doesn't exist, add it
+      await docRef.set(movie);
+      print("Movie added to watchlist");
+    }
+  }
+  //history
+  // static CollectionReference<MovieDetailModel> historyMovieCollectionRef(String uid){
+  //   return  userCollectionRef().doc(uid).collection(MovieDetailModel.historyCollectionName).withConverter<MovieDetailModel>(
+  //     fromFirestore: (snapshot, options) => MovieDetailModel.fromJson(snapshot.data()!),
+  //     toFirestore: (value, options) => value.toJson(),);
+  // }
+  //add history movie
+  // static Future<void> addHistoryMovieToFireStore(MovieDetailModel movie,String uid) async {
+  //   DocumentReference<MovieDetailModel> docRef = historyMovieCollectionRef(uid).doc();
+  //   return await docRef.set(movie);
+  // }
+
+  static Future<void> addToHistory(String uid, MovieDetailModel movie) async {
+    final docRef = historyCollectionRef(uid).doc(movie.id);
+
+    final doc = await docRef.get();
+
+    if (!doc.exists) {
+      await docRef.set({
+        ...movie.toJson(),
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    } else {
+      // لو موجود ممكن نعمل update للوقت بس
+      await docRef.update({
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+    }
+  }
+
+  static Stream<List<MovieDetailModel>> getHistory(String uid) {
+    return FirebaseUtils.historyCollectionRef(uid)
+        .orderBy('createdAt', descending: true)
+        .snapshots()
+        .map((snapshot) =>
+        snapshot.docs.map((e) => MovieDetailModel.fromJson(e.data()as Map<String, dynamic>)).toList());
+  }
+
+  static CollectionReference historyCollectionRef(String uid) {
+    return userCollectionRef()
+        .doc(uid)
+        .collection(MovieDetailModel.historyCollectionName);
+  }
   static CollectionReference<MyUser> userCollectionRef (){
     return FirebaseFirestore.instance.collection(MyUser.collectionName).withConverter(
         fromFirestore: (snapshot, options) =>MyUser.fromJson(snapshot.data()!),
