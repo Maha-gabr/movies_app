@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../models/movies/movie_detail_model.dart';
-import '../../../../../models/movies/movie_detail_model_response.dart';
+import '../../models/movies/movie_detail_model.dart';
+import '../../models/movies/movie_detail_model_response.dart';
 import 'movie_state.dart';
 class MovieCubit extends Cubit<MovieState> {
   MovieCubit()
@@ -11,7 +11,6 @@ class MovieCubit extends Cubit<MovieState> {
   ){
     applyFilter();
   }
-  /// All unique genres extracted from movie data, "All" always first
   List<String> get allGenres {
     return [
       'All',
@@ -56,6 +55,7 @@ int selectedIndex =0;
       filteredMovies: filterList,
     ));
   }
+
 
 
 }

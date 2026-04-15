@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Cast {
   final String name;
   final String image;
@@ -28,8 +30,10 @@ class Cast {
 
 class MovieDetailModel {
   static const String collectionName = 'movies';
+  static const String watchCollectionName = 'watchMovies';
+  static const String historyCollectionName = 'historyMovies';
 
-  final String id;
+  String id;
   final String title;
   final String imagePath;
   final int year;
@@ -41,8 +45,11 @@ class MovieDetailModel {
   final List<Cast> cast;
   final bool isFav;
 
-  const MovieDetailModel({
-     this.id ='',
+  /// 👇 Added for history tracking
+  final DateTime? createdAt;
+
+  MovieDetailModel({
+    this.id = '',
     required this.title,
     required this.imagePath,
     required this.year,
@@ -53,11 +60,12 @@ class MovieDetailModel {
     this.screenShot = const [],
     this.cast = const [],
     this.isFav = false,
+    this.createdAt,
   });
 
   factory MovieDetailModel.fromJson(Map<String, dynamic> json) {
     return MovieDetailModel(
-      id: json['id'] as String,
+      id: json['id'] as String? ?? '',
       title: json['title'] as String,
       imagePath: json['imagePath'] as String,
       year: json['year'] as int,
@@ -70,6 +78,11 @@ class MovieDetailModel {
           .map((e) => Cast.fromJson(e))
           .toList(),
       isFav: json['isFav'] as bool? ?? false,
+
+      /// 👇 Firestore Timestamp → DateTime
+      createdAt: json['createdAt'] != null
+          ? (json['createdAt'] as Timestamp).toDate()
+          : null,
     );
   }
 
@@ -86,6 +99,11 @@ class MovieDetailModel {
       'screenShot': screenShot,
       'cast': cast.map((e) => e.toJson()).toList(),
       'isFav': isFav,
+
+      /// 👇 keep for history sorting
+      'createdAt': createdAt != null
+          ? Timestamp.fromDate(createdAt!)
+          : FieldValue.serverTimestamp(),
     };
   }
 }

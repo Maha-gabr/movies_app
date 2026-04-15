@@ -5,6 +5,7 @@ class MovieDetailModelResponse {
   static List<MovieDetailModel> get movieDetail {
     return [
       MovieDetailModel(
+        id: 'black-widow-2021',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/qAZ0pzat24kLdO3o8ejmbLxyOac.jpg',
         title: 'Black Widow',
         year: 2021,
@@ -24,25 +25,27 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
-        imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/8biauVsABUKLwKeDyfawi8wTggS.jpg',
-        title: 'Hobbs & Shaw',
-        year: 2019,
-        summary: 'Lawman Luke Hobbs and outcast Shaw are forced to partner up when a cyber-genetically enhanced villain threatens the future of humanity.',
-        movieDuration: 137,
-        genres: ['Action', 'Adventure', 'Comedy'],
-        cast: [
-          Cast(name: 'Dwayne Johnson', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/5QApZVV8FUFlVxQpIK3Ew6cqotq.jpg', character: 'Luke Hobbs'),
-          Cast(name: 'Jason Statham', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/pXGSq2UpcDE2NMF8LR56QZf5U1q.jpg', character: 'Deckard Shaw'),
-          Cast(name: 'Idris Elba', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/be1bVF7qGX91a6c5WeRPs5pKXln.jpg', character: 'Brixton'),
-        ],
-        isFav: false,
-        screenShot: [
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/hpgda6P9GutvdkDX5MUJ92QG9aj.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/egxh9sOtF9XMZVlqmxIEt5fUCIm.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/4w8hAIcujqPRBdd2ISieEneTipT.jpg'
-        ]
+          id: 'hobbs-and-shaw-2019',
+          imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/8biauVsABUKLwKeDyfawi8wTggS.jpg',
+          title: 'Hobbs & Shaw',
+          year: 2019,
+          summary: 'Lawman Luke Hobbs and outcast Shaw are forced to partner up when a cyber-genetically enhanced villain threatens the future of humanity.',
+          movieDuration: 137,
+          genres: ['Action', 'Adventure', 'Comedy'],
+          cast: [
+            Cast(name: 'Dwayne Johnson', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/5QApZVV8FUFlVxQpIK3Ew6cqotq.jpg', character: 'Luke Hobbs'),
+            Cast(name: 'Jason Statham', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/pXGSq2UpcDE2NMF8LR56QZf5U1q.jpg', character: 'Deckard Shaw'),
+            Cast(name: 'Idris Elba', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/be1bVF7qGX91a6c5WeRPs5pKXln.jpg', character: 'Brixton'),
+          ],
+          isFav: false,
+          screenShot: [
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/hpgda6P9GutvdkDX5MUJ92QG9aj.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/egxh9sOtF9XMZVlqmxIEt5fUCIm.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/4w8hAIcujqPRBdd2ISieEneTipT.jpg'
+          ]
       ),
       MovieDetailModel(
+        id: '1917-war-2019',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/iZf0KyrE25z1sage4SYFLCCrMi9.jpg',
         title: '1917',
         year: 2019,
@@ -62,44 +65,47 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
-        imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg',
-        title: 'The Avengers',
-        year: 2012,
-        summary: 'Earth\'s mightiest heroes must come together and learn to fight as a team to stop Loki and his alien army from enslaving humanity.',
-        movieDuration: 143,
-        genres: ['Action', 'Adventure', 'Sci-Fi'],
-        cast: [
-          Cast(name: 'Robert Downey Jr.', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg', character: 'Iron Man'),
-          Cast(name: 'Chris Evans', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/3bOGNsHlrswhyW79uvIHH1V43JI.jpg', character: 'Captain America'),
-          Cast(name: 'Chris Hemsworth', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg', character: 'Thor'),
-        ],
-        isFav: false,
-        screenShot: [
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/gHLs7Fy3DzLmLsD4lmfqL55KGcl.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/7QTdhc1OoYItyQFFf6qNmFG6ro6.jpg'
-        ]
+          id: 'avengers-2012',
+          imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg',
+          title: 'The Avengers',
+          year: 2012,
+          summary: 'Earth\'s mightiest heroes must come together and learn to fight as a team to stop Loki and his alien army from enslaving humanity.',
+          movieDuration: 143,
+          genres: ['Action', 'Adventure', 'Sci-Fi'],
+          cast: [
+            Cast(name: 'Robert Downey Jr.', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg', character: 'Iron Man'),
+            Cast(name: 'Chris Evans', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/3bOGNsHlrswhyW79uvIHH1V43JI.jpg', character: 'Captain America'),
+            Cast(name: 'Chris Hemsworth', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/piQGdoIQOF3C1EI5cbYZLAW1gfj.jpg', character: 'Thor'),
+          ],
+          isFav: false,
+          screenShot: [
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/9BBTo63ANSmhC4e6r62OJFuK2GL.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/gHLs7Fy3DzLmLsD4lmfqL55KGcl.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/7QTdhc1OoYItyQFFf6qNmFG6ro6.jpg'
+          ]
       ),
       MovieDetailModel(
-        imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/cf7hE1ifY4UNbS25tGnaTyyDrI2.jpg',
-        title: 'Avatar :Fire and Ash',
-        year: 2025,
-        summary: 'In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na\'vi tribe led by the ruthless Varang. Jake\'s family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits.',
-        movieDuration: 149,
-        genres: ['Action', 'Adventure', 'Sci-Fi'],
-        cast: [
-          Cast(name: 'Sam Worthington', image: AppAssets.movieImage5, character: 'Jake'),
-          Cast(name: 'Zoe Saldaña', image: AppAssets.movieImage5, character: 'Neytiri'),
-          Cast(name: 'Sigourney Weaver', image: AppAssets.movieImage5, character: 'Kiri'),
-        ],
-        isFav: false,
-        screenShot: [
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/iN41Ccw4DctL8npfmYg1j5Tr1eb.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/9QW8bQ0BK4GjtpHPuZvH6cfcBDS.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/pN3eaCl3sqwrerU8UNdp40F2mK0.jpg'
-        ]
+          id: 'avatar-fire-ash-2025',
+          imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/cf7hE1ifY4UNbS25tGnaTyyDrI2.jpg',
+          title: 'Avatar :Fire and Ash',
+          year: 2025,
+          summary: 'In the wake of the devastating war against the RDA and the loss of their eldest son, Jake Sully and Neytiri face a new threat on Pandora: the Ash People, a violent and power-hungry Na\'vi tribe led by the ruthless Varang. Jake\'s family must fight for their survival and the future of Pandora in a conflict that pushes them to their emotional and physical limits.',
+          movieDuration: 149,
+          genres: ['Action', 'Adventure', 'Sci-Fi'],
+          cast: [
+            Cast(name: 'Sam Worthington', image: AppAssets.movieImage5, character: 'Jake'),
+            Cast(name: 'Zoe Saldaña', image: AppAssets.movieImage5, character: 'Neytiri'),
+            Cast(name: 'Sigourney Weaver', image: AppAssets.movieImage5, character: 'Kiri'),
+          ],
+          isFav: false,
+          screenShot: [
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/iN41Ccw4DctL8npfmYg1j5Tr1eb.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/9QW8bQ0BK4GjtpHPuZvH6cfcBDS.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/pN3eaCl3sqwrerU8UNdp40F2mK0.jpg'
+          ]
       ),
       MovieDetailModel(
+        id: 'humint-2026',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/vUw2VOItNTZfGHSSZWqxstUB8ok.jpg',
         title: 'Humint ',
         year: 2026,
@@ -113,12 +119,13 @@ class MovieDetailModelResponse {
         ],
         screenShot: [
           'https://media.themoviedb.org/t/p/w500_and_h282_face/aWS8heTW7M989yEg0TArA5tRJDm.jpg'
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/4Y45z7PQY3H7gsWFjx13GM4d1x1.jpg',
+              'https://media.themoviedb.org/t/p/w500_and_h282_face/4Y45z7PQY3H7gsWFjx13GM4d1x1.jpg',
           'https://media.themoviedb.org/t/p/w500_and_h282_face/a7oKOj0qYaaQsy6LxOYWo4Jpt4B.jpg'
         ],
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'black-panther-2018',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/3LpwXRR8AhNXgxQBVN4It2ldinU.jpg',
         title: 'Black Panther',
         year: 2018,
@@ -138,25 +145,27 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
-        imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/3EhxHFQIZygJT1l4KFpVJ7GIcsg.jpg',
-        title: 'Doctor Strange in the Multiverse of Madness',
-        year: 2022,
-        summary: 'Doctor Strange teams up with a mysterious teenager who can travel between multiverses, facing a powerful enemy determined to destroy them.',
-        movieDuration: 126,
-        genres: ['Action', 'Adventure', 'Fantasy'],
-        cast: [
-          Cast(name: 'Benedict Cumberbatch', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/wz3MRiMmoz6b5X3oSzMRC9nLxY1.jpg', character: 'Doctor Strange'),
-          Cast(name: 'Elizabeth Olsen', image:'https://media.themoviedb.org/t/p/w66_and_h66_face/wIU675y4dofIDVuhaNWPizJNtep.jpg', character: 'Wanda Maximoff'),
-          Cast(name: 'Xochitl Gomez', image:'https://media.themoviedb.org/t/p/w66_and_h66_face/q39DOx44YHrGF1h88R9HxRNZS3.jpg', character: 'America Chavez'),
-        ],
-        isFav: false,
-        screenShot: [
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/AdyJH8kDm8xT8IKTlgpEC15ny4u.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/dTn1HGhCuq26IoBq9qKsiYNFxfq.jpg',
-          'https://media.themoviedb.org/t/p/w500_and_h282_face/51wwXoVKpS6oJMbz03qvN0Hxt99.jpg'
-        ]
+          id: 'doctor-strange-multiverse-2022',
+          imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/3EhxHFQIZygJT1l4KFpVJ7GIcsg.jpg',
+          title: 'Doctor Strange in the Multiverse of Madness',
+          year: 2022,
+          summary: 'Doctor Strange teams up with a mysterious teenager who can travel between multiverses, facing a powerful enemy determined to destroy them.',
+          movieDuration: 126,
+          genres: ['Action', 'Adventure', 'Fantasy'],
+          cast: [
+            Cast(name: 'Benedict Cumberbatch', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/wz3MRiMmoz6b5X3oSzMRC9nLxY1.jpg', character: 'Doctor Strange'),
+            Cast(name: 'Elizabeth Olsen', image:'https://media.themoviedb.org/t/p/w66_and_h66_face/wIU675y4dofIDVuhaNWPizJNtep.jpg', character: 'Wanda Maximoff'),
+            Cast(name: 'Xochitl Gomez', image:'https://media.themoviedb.org/t/p/w66_and_h66_face/q39DOx44YHrGF1h88R9HxRNZS3.jpg', character: 'America Chavez'),
+          ],
+          isFav: false,
+          screenShot: [
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/AdyJH8kDm8xT8IKTlgpEC15ny4u.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/dTn1HGhCuq26IoBq9qKsiYNFxfq.jpg',
+            'https://media.themoviedb.org/t/p/w500_and_h282_face/51wwXoVKpS6oJMbz03qvN0Hxt99.jpg'
+          ]
       ),
       MovieDetailModel(
+        id: 'doctor-who-day-doctor-2013',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/gZH6uXguoii3LgvsH7dyGtBZTix.jpg',
         title: 'Doctor Who: The Day of the Doctor',
         year: 2013,
@@ -177,6 +186,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'godzilla-2014',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/tphkjmQq8WebuVwNXelmjLUXuPJ.jpg',
         title: 'Godzilla',
         year: 2014,
@@ -197,6 +207,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'wednesday-series-2022',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/36xXlhEpQqVVPuiZhfoQuaY4OlA.jpg',
         title: 'Wednesday',
         year: 2022,
@@ -216,6 +227,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'eternals-2021',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg',
         title: 'Eternals',
         year: 2021,
@@ -235,6 +247,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'joker-2019',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/3PbUQVxUgF4FVs6BKpIMwzcALQD.jpg',
         title: 'Joker',
         year: 2019,
@@ -254,6 +267,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'iron-man-3-2013',
         imagePath:'https://media.themoviedb.org/t/p/w220_and_h330_face/kwdWTa5wjFGJbFY2mpofgg91xHp.jpg',
         title: 'Iron Man 3',
         year: 2013,
@@ -273,6 +287,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'scream-7-2026',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/jjyuk0edLiW8vOSnlfwWCCLpbh5.jpg',
         title: 'Scream 7 ',
         year: 2026,
@@ -292,6 +307,7 @@ class MovieDetailModelResponse {
         isFav: false,
       ),
       MovieDetailModel(
+        id: 'war-machine-2026',
         imagePath: 'https://media.themoviedb.org/t/p/w220_and_h330_face/rFhKkXhk7ClU03jQ5rHIApJDwev.jpg',
         title: 'War Machine',
         year: 2026,
