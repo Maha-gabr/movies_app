@@ -278,7 +278,7 @@ class MovieDetailModelResponse {
         year: 2026,
         summary: 'Political involvement in the Avengers\' affairs causes a rift between Captain America and Iron Man, leading to an all-out war between heroes.',
         movieDuration: 190,
-        genres: ['Action', 'Adventure', 'Sci-Fi'],
+        genres:['Horror', 'Mystery', 'Thriller'],
         cast: [
           Cast(name: 'Neve Campbell', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/zQzNg6Kiufj2VCltprI6jilNtl3.jpg', character: 'Sidney Evans'),
           Cast(name: 'Courteney Cox', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/cSOORhCRPJiwKghozXVXrOBi3Tp.jpg', character: 'Gale Weathers'),
