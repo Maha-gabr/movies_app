@@ -4,7 +4,7 @@ class MyUser {
   final String email ;
   final String id ;
   final String phone ;
-  final String avatar;
+  final String? avatar;
   final String pass;
   const MyUser({required this.name, required this.id , required this.email, required this.phone, required this.avatar, required this.pass});
 
