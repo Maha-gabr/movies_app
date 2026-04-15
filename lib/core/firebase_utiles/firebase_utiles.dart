@@ -4,18 +4,25 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movies_app/movie_detail_model/my_user_model.dart';
 
+import '../../movie_detail_model/movie_detail_model.dart';
 class FirebaseUtils {
-
+//
+  static CollectionReference<MovieDetailModel> eventCollectionRef(String uid){
+    return  userCollectionRef().doc(uid).collection(MovieDetailModel.collectionName).withConverter<MovieDetailModel>(
+      fromFirestore: (snapshot, options) => MovieDetailModel.fromJson(snapshot.data()!),
+      toFirestore: (value, options) => value.toJson(),);
+  }
+  //
   static CollectionReference<MyUser> userCollectionRef (){
     return FirebaseFirestore.instance.collection(MyUser.collectionName).withConverter(
         fromFirestore: (snapshot, options) =>MyUser.fromJson(snapshot.data()!),
         toFirestore: (value, options) => value.toJson(),);
   }
-
+//add user to firestore
   static Future<void> addUser(MyUser myUser) async {
     return await  userCollectionRef().doc(myUser.id).set(myUser);
   }
-
+//delete User
   static Future<void> deleteUser(MyUser? currentUser , String password, User fireBaseUser) async {
     final user = FirebaseAuth.instance.currentUser!;
 
