@@ -15,7 +15,9 @@ class AppTextStyle  extends TextStyle{
   static TextStyle regRed14 =GoogleFonts.roboto(color: AppColor.red,fontSize: 14,fontWeight: FontWeight.w400);
   static TextStyle regWhit16 =GoogleFonts.roboto(color: AppColor.white,fontSize: 16,fontWeight: FontWeight.w400);
   static TextStyle regPrimary16 =GoogleFonts.roboto(color: AppColor.primary,fontSize: 16,fontWeight: FontWeight.w400);
-
   static  TextStyle boldWhite20 =  GoogleFonts.inter(color: AppColor.white,fontSize: 20,fontWeight: FontWeight.bold);
+  static  TextStyle boldBlack20 =  GoogleFonts.inter(color: AppColor.black,fontSize: 20,fontWeight: FontWeight.bold);
+  static  TextStyle boldPrimary20 =  GoogleFonts.inter(color: AppColor.primary,fontSize: 20,fontWeight: FontWeight.bold);
+
 
 }
