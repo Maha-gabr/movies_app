@@ -5,7 +5,7 @@ import 'package:movies_app/core/resources/app_assets.dart';
 import 'package:movies_app/core/resources/app_text_style.dart';
 
 import '../../../../core/routes_manager/routes.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../../models/movies/movie_detail_model_response.dart';
 class HomeTap extends StatefulWidget {
   const HomeTap({super.key});
 
@@ -70,7 +70,6 @@ class _HomeTapState extends State<HomeTap> {
             SizedBox(height: 20.h,),
             SizedBox(
               height: 200.h,
-        
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: MovieDetailModelResponse.movieDetail.length,
@@ -79,7 +78,8 @@ class _HomeTapState extends State<HomeTap> {
                   margin: EdgeInsetsGeometry.symmetric(horizontal: 5.w),
                     child: GestureDetector(
                         onTap: (){
-                          Navigator.of(context).pushNamed(Routes.detailScreenRoute,arguments: index);},
+                          Navigator.of(context).pushNamed(Routes.detailScreenRoute,arguments: MovieDetailModelResponse.movieDetail[index]);},
+
                         child: ClipRRect(
                           borderRadius: BorderRadiusGeometry.circular(16.r),
                           child: Image.network(

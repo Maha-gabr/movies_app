@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/features/main_layout/taps/explore/view_model/movie_cubit.dart';
-
 import '../../../../../core/routes_manager/routes.dart';
 GridView buildFilteredList (MovieCubit browseCubit){
   return  GridView.builder(

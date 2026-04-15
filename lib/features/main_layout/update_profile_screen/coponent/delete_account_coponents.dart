@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../movie_detail_model/my_user_model.dart';
+import '../../../../models/user/my_user_model.dart';
 import '../../../auth/cubit/auth_cubit.dart';
 import 'customTextField.dart';
 Future<void> deleteAccountConfirm(

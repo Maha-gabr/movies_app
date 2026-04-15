@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/app_color.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../../models/movies/movie_detail_model.dart';
 class MovieScreenshotWidget extends StatelessWidget {
-  final int index;
-  const MovieScreenshotWidget({super.key, required this.index});
+  final MovieDetailModel movie;
+  const MovieScreenshotWidget({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
     return Column(
         spacing: 10.h,
-        children: List.generate(MovieDetailModelResponse.movieDetail[index].screenShot?.length??3, (screenShotIndex) {
+        children: List.generate(movie.screenShot?.length??3, (screenShotIndex) {
           return
             ClipRRect(
               borderRadius: BorderRadiusGeometry.circular(16.r),
@@ -21,7 +21,7 @@ class MovieScreenshotWidget extends StatelessWidget {
 
                 },
                 child: Image.network(
-                  MovieDetailModelResponse.movieDetail[index].screenShot?[screenShotIndex] ?? '',
+                  movie.screenShot?[screenShotIndex] ?? '',
                   height: 180.h,
                   width: double.infinity,
                   fit: BoxFit.fill,

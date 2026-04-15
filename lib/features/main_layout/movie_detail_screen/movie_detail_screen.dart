@@ -7,10 +7,11 @@ import 'package:movies_app/features/main_layout/movie_detail_screen/widgets/movi
 import 'package:movies_app/features/main_layout/movie_detail_screen/widgets/movie_genres_widget.dart';
 import 'package:movies_app/features/main_layout/movie_detail_screen/widgets/movie_screenshot_widget.dart';
 import 'package:movies_app/features/main_layout/movie_detail_screen/widgets/similar_movies_widget.dart';
-import '../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../models/movies/movie_detail_model.dart';
 class MovieDetailScreen extends StatelessWidget {
-  final int index;
-  const MovieDetailScreen({super.key,required this.index});
+  final MovieDetailModel movie;
+  // final int index;
+  const MovieDetailScreen({super.key,required this.movie});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,7 @@ class MovieDetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: .start,
           children: [
-            MovieDetailWidget(index : index),
+            MovieDetailWidget(movie : movie),
             SizedBox(height: 5.h,),
             Padding(
               padding: EdgeInsetsGeometry.symmetric(horizontal: 10.w),
@@ -28,21 +29,21 @@ class MovieDetailScreen extends StatelessWidget {
                 children: [
                   Text('Screen Shots',style: AppTextStyle.boldWhite24,textAlign: TextAlign.start,),
                   SizedBox(height: 5.h,),
-                  MovieScreenshotWidget(index: index),
+                  MovieScreenshotWidget(movie: movie),
                   SizedBox(height: 5.h,),
                   Text('Similar',style: AppTextStyle.boldWhite24,textAlign: TextAlign.start,),
                   SizedBox(height: 5.h,),
-                  SimilarMoviesWidget(index : index),
+                  SimilarMoviesWidget(movie : movie),
                   Text('Summary',style: AppTextStyle.boldWhite24,textAlign: TextAlign.start,),
                   SizedBox(height: 5.h,),
-                  Text(MovieDetailModelResponse.movieDetail[index].summary,style: AppTextStyle.regWhit16,),
+                  Text(movie.summary,style: AppTextStyle.regWhit16,),
                   SizedBox(height: 5.h,),
                   Text('Cast',style: AppTextStyle.boldWhite24,textAlign: TextAlign.start,),
                   SizedBox(height: 5.h,),
-                  MovieCastWidget(index: index),
+                  MovieCastWidget(movie: movie),
                   Text('Genres',style: AppTextStyle.boldWhite24,textAlign: TextAlign.start,),
                   SizedBox(height: 5.h,),
-                  MovieGenresWidget(index: index),
+                  MovieGenresWidget(movie: movie),
                 ],
               ),
             )

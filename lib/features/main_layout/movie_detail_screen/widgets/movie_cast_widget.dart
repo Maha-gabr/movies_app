@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/resources/app_color.dart';
 import '../../../../core/resources/app_text_style.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../../models/movies/movie_detail_model.dart';
 class MovieCastWidget extends StatelessWidget {
-  final int index;
-  const MovieCastWidget({super.key, required this.index});
+  final MovieDetailModel movie;
+  const MovieCastWidget({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,7 @@ class MovieCastWidget extends StatelessWidget {
       height: 310.h,
       child: Wrap(
           runSpacing: 10.w,
-          children: MovieDetailModelResponse
-              .movieDetail[index].cast.map((cast) {
+          children: movie.cast.map((cast) {
             return  Container(
               height: 92.h,
               padding: EdgeInsetsGeometry.symmetric(horizontal: 10.w, vertical: 10.h),

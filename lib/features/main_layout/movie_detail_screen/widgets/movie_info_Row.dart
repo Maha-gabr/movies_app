@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/app_text_style.dart';
-import 'package:movies_app/movie_detail_model/movie_detail_model_response.dart';
+import 'package:movies_app/models/movies/movie_detail_model.dart';
 
 import '../../../../core/resources/app_color.dart';
 class MovieInfoRow extends StatelessWidget {
-  final int index ;
-  const  MovieInfoRow({super.key, required this.index});
+  final MovieDetailModel movie ;
+  const  MovieInfoRow({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class MovieInfoRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(onPressed: (){}, icon: Icon(Icons.timer,color: AppColor.primary,size: 28.sp,)),
-              Text(MovieDetailModelResponse.movieDetail[index].movieDuration.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
+              Text(movie.movieDuration.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
             ],
           ),
         ), Container(
@@ -52,7 +52,7 @@ class MovieInfoRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(onPressed: (){}, icon: Icon(Icons.star_rate,size: 28.sp,color: AppColor.primary,)),
-              Text(MovieDetailModelResponse.movieDetail[index].voteAverage.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
+              Text(movie.voteAverage.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
 
             ],
           ),

@@ -2,9 +2,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:movies_app/movie_detail_model/my_user_model.dart';
 
-import '../../movie_detail_model/movie_detail_model.dart';
+import '../../models/movies/movie_detail_model.dart';
+import '../../models/user/my_user_model.dart';
 class FirebaseUtils {
 //
   static CollectionReference<MovieDetailModel> eventCollectionRef(String uid){

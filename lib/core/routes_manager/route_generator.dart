@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/core/routes_manager/routes.dart';
 
 import 'package:movies_app/features/main_layout/movie_detail_screen/movie_detail_screen.dart';
+import 'package:movies_app/models/movies/movie_detail_model.dart';
 
 import '../../features/auth/ui/forget_pass/forget_pass_screen.dart';
 import '../../features/auth/ui/login/login_screen.dart';
@@ -26,8 +27,9 @@ class RouteGenerator {
       case Routes.forgetPassRoute:
         return MaterialPageRoute(builder: (_) => const ForgetPassScreen());
       case Routes.detailScreenRoute:
-        final index = settings.arguments as int;
-        return MaterialPageRoute(builder: (_) => MovieDetailScreen(index: index,));
+        // final index = settings.arguments as int;
+      final movie = settings.arguments as MovieDetailModel;
+        return MaterialPageRoute(builder: (_) => MovieDetailScreen(movie: movie, ));
       case Routes.updateProfileRoute:
         return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
 

@@ -3,8 +3,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movies_app/features/auth/cubit/auth_states.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:movies_app/movie_detail_model/my_user_model.dart';
 import '../../../core/firebase_utiles/firebase_utiles.dart';
+import '../../../models/user/my_user_model.dart';
 
 class AuthCubit extends Cubit<AuthStates>{
   AuthCubit():super(AuthInitState());

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/models/movies/movie_detail_model.dart';
 
 import '../../../../core/resources/app_color.dart';
 import '../../../../core/resources/app_text_style.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
 class MovieGenresWidget extends StatelessWidget {
-  final int index;
-  const MovieGenresWidget({super.key, required this.index});
+  final MovieDetailModel movie;
+  const MovieGenresWidget({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,7 @@ class MovieGenresWidget extends StatelessWidget {
       child: Wrap(
         spacing: 10.w,
         runSpacing: 10.h,
-        children: MovieDetailModelResponse
-            .movieDetail[index]
+        children: movie
             .genres
             .map(
               (genre) => Container(

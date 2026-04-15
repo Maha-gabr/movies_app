@@ -1,5 +1,5 @@
 import 'package:movies_app/core/resources/app_assets.dart';
-import 'package:movies_app/movie_detail_model/movie_detail_model.dart';
+import 'movie_detail_model.dart';
 
 class MovieDetailModelResponse {
   static List<MovieDetailModel> get movieDetail {

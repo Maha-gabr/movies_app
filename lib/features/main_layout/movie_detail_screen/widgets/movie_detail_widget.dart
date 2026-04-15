@@ -5,12 +5,12 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/resources/app_assets.dart';
 import '../../../../core/resources/app_color.dart';
 import '../../../../core/resources/app_text_style.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../../models/movies/movie_detail_model.dart';
 import '../../../auth/ui/custom_widgets/custom_elevated_button.dart';
 import 'movie_info_Row.dart';
 class MovieDetailWidget extends StatelessWidget {
-  final int index;
-  const MovieDetailWidget({super.key, required this.index});
+  final MovieDetailModel movie;
+  const MovieDetailWidget({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class MovieDetailWidget extends StatelessWidget {
       decoration: BoxDecoration(
           borderRadius: BorderRadiusGeometry.circular(20.r),
           image: DecorationImage(image:
-          NetworkImage(MovieDetailModelResponse.movieDetail[index].imagePath,),
+          NetworkImage(movie.imagePath,),
               // AssetImage(MovieDetailModelResponse.movieDetail[index].imagePath,),
               fit: BoxFit.cover)
       ),
@@ -30,13 +30,13 @@ class MovieDetailWidget extends StatelessWidget {
             SizedBox(height: 200.h),
             SvgPicture.asset(AppAssets.playIcon),
             SizedBox(height: 150.h),
-            Text((MovieDetailModelResponse.movieDetail[index].title),style: AppTextStyle.boldWhite24),
+            Text((movie.title),style: AppTextStyle.boldWhite24),
             SizedBox(height: 25.h,),
-            Text(MovieDetailModelResponse.movieDetail[index].year.toString(),style: AppTextStyle.boldWhite20.copyWith(color: AppColor.grey),),
+            Text(movie.year.toString(),style: AppTextStyle.boldWhite20.copyWith(color: AppColor.grey),),
             SizedBox(height: 25.h,),
             CustomElevatedButton(text: 'Watch',color: AppColor.baseRed,textStyle: AppTextStyle.boldWhite20,),
             SizedBox(height: 20.h,),
-            MovieInfoRow(index: index,),
+            MovieInfoRow(movie: movie,),
           ],
         ),
       ),

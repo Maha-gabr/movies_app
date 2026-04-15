@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/resources/app_color.dart';
-import '../../../../movie_detail_model/movie_detail_model_response.dart';
+import '../../../../models/movies/movie_detail_model.dart';
+import '../../../../models/movies/movie_detail_model_response.dart';
 class SimilarMoviesWidget extends StatelessWidget {
-  final int index ;
-  const SimilarMoviesWidget({super.key, required this.index});
+  final MovieDetailModel movie ;
+  const SimilarMoviesWidget({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
