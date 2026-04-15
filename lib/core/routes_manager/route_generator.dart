@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/routes_manager/routes.dart';
-
 import 'package:movies_app/features/main_layout/movie_detail_screen/movie_detail_screen.dart';
 import 'package:movies_app/models/movies/movie_detail_model.dart';
-
 import '../../features/auth/ui/forget_pass/forget_pass_screen.dart';
 import '../../features/auth/ui/login/login_screen.dart';
 import '../../features/auth/ui/register/register_screen.dart';
