@@ -10,8 +10,9 @@ import '../../../auth/ui/custom_widgets/custom_elevated_button.dart';
 import 'movie_info_Row.dart';
 class MovieDetailWidget extends StatelessWidget {
   final MovieDetailModel movie;
-  const MovieDetailWidget({super.key, required this.movie});
-
+  final bool isSelected ;
+  final void Function()? onPressed;
+  const MovieDetailWidget({super.key, required this.movie, required this.isSelected, this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,7 +37,7 @@ class MovieDetailWidget extends StatelessWidget {
             SizedBox(height: 25.h,),
             CustomElevatedButton(text: 'Watch',color: AppColor.baseRed,textStyle: AppTextStyle.boldWhite20,),
             SizedBox(height: 20.h,),
-            MovieInfoRow(movie: movie,),
+            MovieInfoRow(movie: movie, onPressed:onPressed, isSelected: isSelected,),
           ],
         ),
       ),
