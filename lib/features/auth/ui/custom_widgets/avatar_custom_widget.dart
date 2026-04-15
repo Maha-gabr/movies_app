@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/app_constant.dart';
-import 'package:movies_app/features/auth/cubit/auth_cubit.dart';
-import 'package:movies_app/features/auth/cubit/auth_states.dart';
+import 'package:movies_app/cubits/user_cubit/auth_cubit.dart';
+import 'package:movies_app/cubits/user_cubit/auth_states.dart';
 
-import '../../../../core/resources/app_assets.dart';
 
 class AvatarCustomWidget extends StatefulWidget {
   const AvatarCustomWidget({super.key,});

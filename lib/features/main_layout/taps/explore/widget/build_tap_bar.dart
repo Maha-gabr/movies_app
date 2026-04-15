@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/features/main_layout/taps/explore/view_model/movie_cubit.dart';
+import 'package:movies_app/cubits/movie_cubit/movie_cubit.dart';
 import 'package:movies_app/features/main_layout/taps/explore/widget/tap_widget.dart';
 
 TabBar buildTapBar(MovieCubit browseCubit){

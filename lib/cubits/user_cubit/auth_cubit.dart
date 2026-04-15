@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:movies_app/features/auth/cubit/auth_states.dart';
+import 'package:movies_app/cubits/user_cubit/auth_states.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../../../core/firebase_utiles/firebase_utiles.dart';
-import '../../../models/user/my_user_model.dart';
+import '../../core/firebase_utiles/firebase_utiles.dart';
+import '../../models/user/my_user_model.dart';
 
 class AuthCubit extends Cubit<AuthStates>{
   AuthCubit():super(AuthInitState());
@@ -68,11 +68,7 @@ class AuthCubit extends Cubit<AuthStates>{
       emit(AuthSuccessState());
     } on FirebaseAuthException catch (e) {
         emit(AuthErrorState(errMessage: 'Invalid email or password'));
-      // } else if (e.code == 'wrong-password') {
-      //   emit(AuthErrorState(errMessage: 'Wrong password'));
-      // } else {
-      //   emit(AuthErrorState(errMessage: e.message ?? 'Error'));
-      // }
+
 
   }}
 
