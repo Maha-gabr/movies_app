@@ -35,4 +35,4 @@ A modern Flutter application built with a focus on clean architecture, performan
 
 ## 👩‍💻 Author
 
-Developed with 💙 using Flutter
+Developed with maha💙 using Flutter
