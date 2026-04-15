@@ -100,6 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onTap: (){
                   if(key.currentState!.validate()){
                     context.read<AuthCubit>().signIn(email: emailController.text, password: passController.text);
+
                   }
               },
               ),
