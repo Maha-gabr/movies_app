@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/app_text_style.dart';
-import 'package:movies_app/features/on_boarding/model/on_boarding_model.dart';
-import '../../core/resources/app_color.dart';
-import '../../core/routes_manager/routes.dart';
+import '../../../core/resources/app_color.dart';
+import '../../../core/routes_manager/routes.dart';
+import 'model/on_boarding_model.dart';
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
 
