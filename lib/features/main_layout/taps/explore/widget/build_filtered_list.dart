@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movies_app/features/main_layout/taps/explore/view_model/browse_cubit.dart';
+import 'package:movies_app/features/main_layout/taps/explore/view_model/movie_cubit.dart';
 
 import '../../../../../core/routes_manager/routes.dart';
-GridView buildFilteredList (BrowseCubit browseCubit){
+GridView buildFilteredList (MovieCubit browseCubit){
   return  GridView.builder(
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
       // 👇 horizontal space between items

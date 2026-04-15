@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/resources/app_color.dart';
-import '../../explore/view_model/browse_cubit.dart';
+import '../../explore/view_model/movie_cubit.dart';
 
-TextField customTextField (BrowseCubit browseCubit){
+TextField customTextField (MovieCubit browseCubit){
   return TextField(
     onChanged: (value) {
       browseCubit.searchByMovieName(value);
