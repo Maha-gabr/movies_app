@@ -52,7 +52,7 @@ class MovieInfoRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(onPressed: (){}, icon: Icon(Icons.star_rate,size: 28.sp,color: AppColor.primary,)),
-              Text(MovieDetailModelResponse.movieDetail[index].likes.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
+              Text(MovieDetailModelResponse.movieDetail[index].voteAverage.toString(),style: AppTextStyle.boldWhite24.copyWith(fontSize: 20),)
 
             ],
           ),
