@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/features/main_layout/taps/search/widget/custom_text_field.dart';
 
 import '../../../../core/resources/app_color.dart';
-import '../explore/view_model/movie_cubit.dart';
-import '../explore/view_model/movie_state.dart';
+import '../../../../cubits/movie_cubit/movie_cubit.dart';
+import '../../../../cubits/movie_cubit/movie_state.dart';
 import '../explore/widget/build_filtered_list.dart';
 
 class SearchTap extends StatelessWidget {
