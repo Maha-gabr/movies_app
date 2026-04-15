@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/app_color.dart';
-import 'package:movies_app/features/main_layout/taps/explore/view_model/movie_cubit.dart';
-import 'package:movies_app/features/main_layout/taps/explore/view_model/movie_state.dart';
+import 'package:movies_app/cubits/movie_cubit/movie_cubit.dart';
+import 'package:movies_app/cubits/movie_cubit/movie_state.dart';
 import 'package:movies_app/features/main_layout/taps/explore/widget/build_tap_bar.dart';
 import 'package:movies_app/features/main_layout/taps/explore/widget/build_filtered_list.dart';
 class ExploreTap extends StatefulWidget {
