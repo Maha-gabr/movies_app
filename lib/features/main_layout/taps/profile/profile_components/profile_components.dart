@@ -1,17 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/resources/app_assets.dart';
 import '../../../../../core/resources/app_color.dart';
 import '../../../../../core/resources/app_text_style.dart';
 import '../../../../../core/routes_manager/routes.dart';
+import '../../../../../models/movies/movie_detail_model.dart';
 import '../../../../auth/ui/custom_widgets/custom_elevated_button.dart';
+import 'build_user_movie_list.dart';
 
 class ProfileComponents{
   // ── Header ────────────────────────────────────────────────────────────────
 
- static  Widget buildHeader({required String name,  String? avatar}) {
+ static  Widget buildHeader({required String name,  String? avatar, required int watchMovies, required int historyYMovies}) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -44,8 +45,8 @@ class ProfileComponents{
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    buildStat('12', 'Wish List'),
-                    buildStat('10', 'History'),
+                    buildStat(watchMovies.toString(), 'Wish List'),
+                    buildStat(historyYMovies.toString(), 'History'),
                   ],
                 ),
               ),
@@ -138,12 +139,13 @@ class ProfileComponents{
 
   // ── Tab Content ───────────────────────────────────────────────────────────
 
-  static Widget buildTabContent(TabController? tabController) {
+  static Widget buildTabContent(TabController? tabController, List<MovieDetailModel> historyList, List<MovieDetailModel> watchList) {
     return TabBarView(
       controller: tabController,
       children: [
-        buildEmptyState(),  // Watch List tab — empty for now
-        buildEmptyState(),  // History tab — empty for now
+        buildUserMoviesList(watchList),
+        // buildEmptyState(),  // Watch List tab — empty for now
+        buildUserMoviesList(historyList),  // History tab — empty for now
       ],
     );
   }
