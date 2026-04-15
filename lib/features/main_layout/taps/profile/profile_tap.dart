@@ -16,8 +16,7 @@ class ProfileTap extends StatefulWidget {
   State<ProfileTap> createState() => _ProfileTapState();
 }
 
-class _ProfileTapState extends State<ProfileTap>
-    with SingleTickerProviderStateMixin {
+class _ProfileTapState extends State<ProfileTap> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
