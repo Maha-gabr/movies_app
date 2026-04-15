@@ -1,10 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movies_app/core/resources/app_assets.dart';
 import 'package:movies_app/core/resources/app_text_style.dart';
 
+import '../../../../core/firebase_utiles/firebase_utiles.dart';
 import '../../../../core/routes_manager/routes.dart';
+import '../../../../cubits/user_cubit/auth_cubit.dart';
+import '../../../../cubits/user_cubit/auth_states.dart';
+import '../../../../cubits/user_movies_cubit/user_movies_cubit.dart';
 import '../../../../models/movies/movie_detail_model_response.dart';
 class HomeTap extends StatefulWidget {
   const HomeTap({super.key});
@@ -76,10 +81,15 @@ class _HomeTapState extends State<HomeTap> {
                 itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsetsGeometry.symmetric(horizontal: 5.w),
-                    child: GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).pushNamed(Routes.detailScreenRoute,arguments: MovieDetailModelResponse.movieDetail[index]);},
-
+                    child: BlocBuilder<AuthCubit, AuthStates>(
+  builder: (context, state) {
+    final user = context.watch<AuthCubit>().myUser;
+    return GestureDetector(
+                        onTap: () async {
+                          Navigator.of(context).pushNamed(Routes.detailScreenRoute,arguments: MovieDetailModelResponse.movieDetail[index]);
+                          await FirebaseUtils.addToHistory(user?.id??'', MovieDetailModelResponse.movieDetail[index]);
+                          context.read()<UserMovieCubit>().fetchHistory(user?.id??'');
+                          },
                         child: ClipRRect(
                           borderRadius: BorderRadiusGeometry.circular(16.r),
                           child: Image.network(
@@ -93,7 +103,10 @@ class _HomeTapState extends State<HomeTap> {
                               child: const Icon(Icons.broken_image, color: Colors.white38),
                             ),
                           ),
-                        )));
+                        ));
+
+  },
+));
               },),
             )
         
