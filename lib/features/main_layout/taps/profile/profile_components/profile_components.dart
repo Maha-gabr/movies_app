@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/resources/app_assets.dart';
 import '../../../../../core/resources/app_color.dart';
 import '../../../../../core/resources/app_text_style.dart';
 import '../../../../../core/routes_manager/routes.dart';
@@ -12,7 +11,7 @@ import 'build_user_movie_list.dart';
 class ProfileComponents{
   // ── Header ────────────────────────────────────────────────────────────────
 
- static  Widget buildHeader({required String name,  String? avatar, required int watchMovies, required int historyYMovies}) {
+ static  Widget buildHeader({required String name,  required String avatar, required int watchMovies, required int historyYMovies}) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -34,7 +33,7 @@ class ProfileComponents{
                     border: Border.all(color: AppColor.primary, width: 2.5),
                   ),
                   child: ClipOval(
-                      child: Image.asset(avatar ?? AppAssets.avatar2,fit: BoxFit.cover,)
+                      child: Image.asset(avatar ,fit: BoxFit.cover,)
                   ),
                 ),
               ),
