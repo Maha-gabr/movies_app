@@ -1,5 +1,5 @@
 
-import '../../../../../models/movies/movie_detail_model.dart';
+import '../../models/movies/movie_detail_model.dart';
 
 class MovieState {
   final String selectedGenre;

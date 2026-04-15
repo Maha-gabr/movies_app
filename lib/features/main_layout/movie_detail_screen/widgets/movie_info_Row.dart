@@ -6,7 +6,9 @@ import 'package:movies_app/models/movies/movie_detail_model.dart';
 import '../../../../core/resources/app_color.dart';
 class MovieInfoRow extends StatelessWidget {
   final MovieDetailModel movie ;
-  const  MovieInfoRow({super.key, required this.movie});
+  final void Function()? onPressed;
+  final bool isSelected;
+  const  MovieInfoRow({super.key, required this.movie, required this.onPressed, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,11 @@ class MovieInfoRow extends StatelessWidget {
           child:Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border,color: AppColor.primary,))
+              IconButton(
+                  onPressed: onPressed,
+                  icon:isSelected? Icon(Icons.favorite,color: AppColor.primary,)
+              : Icon(Icons.favorite_border,color: AppColor.primary,),
+              )
             ],
           ),
        ),
