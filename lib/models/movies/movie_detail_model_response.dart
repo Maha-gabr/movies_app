@@ -1,4 +1,3 @@
-import 'package:movies_app/core/resources/app_assets.dart';
 import 'movie_detail_model.dart';
 
 class MovieDetailModelResponse {
@@ -93,9 +92,9 @@ class MovieDetailModelResponse {
           movieDuration: 149,
           genres: ['Action', 'Adventure', 'Sci-Fi'],
           cast: [
-            Cast(name: 'Sam Worthington', image: AppAssets.movieImage5, character: 'Jake'),
-            Cast(name: 'Zoe Saldaña', image: AppAssets.movieImage5, character: 'Neytiri'),
-            Cast(name: 'Sigourney Weaver', image: AppAssets.movieImage5, character: 'Kiri'),
+            Cast(name: 'Sam Worthington', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/mflBcox36s9ZPbsZPVOuhf6axaJ.jpg', character: 'Jake'),
+            Cast(name: 'Zoe Saldaña', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/iOVbUH20il632nj2v01NCtYYeSg.jpg', character: 'Neytiri'),
+            Cast(name: 'Sigourney Weaver', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/wTSnfktNBLd6kwQxgvkqYw6vEon.jpg', character: 'Kiri'),
           ],
           isFav: false,
           screenShot: [
@@ -275,9 +274,9 @@ class MovieDetailModelResponse {
         movieDuration: 130,
         genres: ['Action', 'Adventure', 'Sci-Fi'],
         cast: [
-          Cast(name: 'Robert Downey Jr.', image: AppAssets.movieImage14, character: 'Tony Stark'),
-          Cast(name: 'Gwyneth Paltrow', image: AppAssets.movieImage14, character: 'Pepper Potts'),
-          Cast(name: 'Ben Kingsley', image: AppAssets.movieImage14, character: 'The Mandarin'),
+          Cast(name: 'Robert Downey Jr.', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg', character: 'Tony Stark'),
+          Cast(name: 'Gwyneth Paltrow', image: 'https://media.themoviedb.org/t/p/w66_and_h66_face/ylN4A7fnnNXvHURENl5sQI8Jbib.jpg', character: 'Pepper Potts'),
+          Cast(name: 'Ben Kingsley', image:'https://media.themoviedb.org/t/p/w66_and_h66_face/vQtBqpF2HDdzbfXHDzR4u37i1Ac.jpg', character: 'The Mandarin'),
         ],
         screenShot: [
           'https://media.themoviedb.org/t/p/w500_and_h282_face/tKa1gmGKAUVYnflYcadipeL3d9h.jpg',
