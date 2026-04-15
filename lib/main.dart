@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'core/firebase_utiles/firebase_options.dart';
 import 'core/routes_manager/route_generator.dart';
 import 'core/routes_manager/routes.dart';
-import 'features/auth/cubit/auth_cubit.dart';
+import 'cubits/user_cubit/auth_cubit.dart';
+import 'cubits/user_movies_cubit/user_movies_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,16 +26,23 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) =>
-       BlocProvider(
-         create: (cotext) => AuthCubit(),
-         child: MaterialApp(
-             debugShowCheckedModeBanner: false,
-             home: child,
-             onGenerateRoute: RouteGenerator.getRoute,
-             // initialRoute: Routes.onBoardingRoute,
-           initialRoute: Routes.SignUpRoute,
-               ),
-       ),
+          MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (cotext) => AuthCubit(),
+              ),
+              BlocProvider(
+                create: (context) => UserMovieCubit(),
+              ),
+            ],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: child,
+              onGenerateRoute: RouteGenerator.getRoute,
+              // initialRoute: Routes.onBoardingRoute,
+              initialRoute: Routes.SignUpRoute,
+            ),
+          ),
     );
   }
 }
