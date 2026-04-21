@@ -4,6 +4,7 @@ import 'package:movies_app/cubits/user_cubit/auth_states.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../core/firebase_utiles/firebase_utiles.dart';
+import '../../core/resources/shared_pref_utiles.dart';
 import '../../models/user/my_user_model.dart';
 
 class AuthCubit extends Cubit<AuthStates>{
@@ -15,6 +16,20 @@ class AuthCubit extends Cubit<AuthStates>{
     avatar = newAvatar;
     emit(ChangeAvatarState(avatar: avatar));
   }
+
+  //
+  Future<void> restoreSession() async {
+    try {
+      firebaseUser = FirebaseAuth.instance.currentUser;
+      if (firebaseUser != null) {
+        myUser = await FirebaseUtils.getUser(firebaseUser!.uid);
+        emit(AuthSuccessState());
+      }
+    } catch (e) {
+      emit(AuthErrorState(errMessage: 'Failed to restore session'));
+    }
+  }
+  //
 
   Future<void> addUser({
     required TextEditingController emailController,
@@ -40,7 +55,11 @@ class AuthCubit extends Cubit<AuthStates>{
       );
       // add user to fire store
       await FirebaseUtils.addUser(myUser!);
-      emit(AuthSuccessState())        ;
+      await SharedPrefsUtils.saveData(
+        key: 'isLoggedIn',
+        value: true,
+      );
+      emit(AuthSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         emit(AuthErrorState(errMessage:'The password provided is too weak.' ));
@@ -61,10 +80,12 @@ class AuthCubit extends Cubit<AuthStates>{
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-
       firebaseUser = credential.user;
       myUser = await FirebaseUtils.getUser(firebaseUser!.uid);
-
+      // await SharedPrefsUtils.saveData(
+      //   key: 'isLoggedIn',
+      //   value: true,
+      // );
       emit(AuthSuccessState());
     } on FirebaseAuthException catch (e) {
         emit(AuthErrorState(errMessage: 'Invalid email or password'));
@@ -99,14 +120,16 @@ class AuthCubit extends Cubit<AuthStates>{
         );
         await FirebaseUtils.addUser(myUser!);
       }
+      // await SharedPrefsUtils.saveData(
+      //   key: 'isLoggedIn',
+      //   value: true,
+      // );
       emit(AuthSuccessState());
     } on FirebaseAuthException catch (e) {
-      print(e.toString());
-      print('🚩🚩🚩');
+
       emit(AuthErrorState(errMessage: e.message ?? 'fire Google Sign-In failed'));
     } catch (e) {
-      print(e.toString());
-      print('🚩🚩🚩');
+
       emit(AuthErrorState(errMessage: 'Google Sign-In failed'));
     }
   }
@@ -114,7 +137,7 @@ class AuthCubit extends Cubit<AuthStates>{
     emit(AuthLoadingState());
     try {
       await FirebaseAuth.instance.signOut();
-      await GoogleSignIn().signOut(); // ← مهم لو استخدم Google
+      await GoogleSignIn().signOut(); // مهم لو استخدم Google
       myUser = null;
       firebaseUser = null;
       emit(SignOutSuccessState());
@@ -126,14 +149,12 @@ class AuthCubit extends Cubit<AuthStates>{
     emit(DeleteUserLoading());
     try{
       firebaseUser ??= FirebaseAuth.instance.currentUser;
-
       if (firebaseUser == null || myUser == null) {
         emit(DeleteUserError(errMessage: 'User session expired, please log in again'));
         return;
       }
-      await FirebaseUtils.deleteUser(myUser!, pass, firebaseUser!); // 👈 pass it
+      await FirebaseUtils.deleteUser(myUser!, pass, firebaseUser!);
       emit(DeleteUserSuccess());
-      print('deleted successfully 🚩🚩🚩');
     }on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password') {
         // show error to user
@@ -164,7 +185,6 @@ class AuthCubit extends Cubit<AuthStates>{
       emit(UpdateUserError(errMessage: 'Update failed'));
     }
   }
-
   //reset pass
   Future<void> resetPassword(String email) async {
     emit(AuthLoadingState());

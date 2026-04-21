@@ -120,6 +120,7 @@ void initState() {
                                   nameController: nameController,
                                   phoneController: phoneController,
                                 );
+                                // await SharedPrefsUtils.saveData(key: "isLoggedIn", value: true);
                             }
                           }, text: 'Create Account',),
                           AuthRedirectTextWidget(

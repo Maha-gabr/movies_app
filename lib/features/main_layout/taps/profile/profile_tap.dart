@@ -83,8 +83,10 @@ class _ProfileTapState extends State<ProfileTap>
               }
             },
             child: ProfileComponents.buildActionButtons(
-                context, () {
-              context.read<AuthCubit>().signOut();
+                context, () async {
+              await context.read<AuthCubit>().signOut();
+
+
             }),
           ),
           SizedBox(height: 8.h),

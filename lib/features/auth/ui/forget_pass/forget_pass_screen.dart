@@ -78,7 +78,7 @@ final _formKey = GlobalKey<FormState>();
               ),
               SizedBox(height: 24.h,),
               CustomElevatedButton(
-                onTap: (){
+                onTap: () async {
                   if (_formKey.currentState!.validate()){
                     context.read<AuthCubit>().resetPassword(emailController.text);
                   }

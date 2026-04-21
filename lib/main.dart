@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movies_app/core/resources/shared_pref_utiles.dart';
 import 'core/firebase_utiles/firebase_options.dart';
 import 'core/routes_manager/route_generator.dart';
 import 'core/routes_manager/routes.dart';
@@ -13,6 +14,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await SharedPrefsUtils.init();
+
   runApp(const MyApp());
 }
 
@@ -35,14 +38,16 @@ class MyApp extends StatelessWidget {
                 create: (context) => UserMovieCubit(),
               ),
             ],
+
             child: MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: child,
               onGenerateRoute: RouteGenerator.getRoute,
-              // initialRoute: Routes.onBoardingRoute,
-              initialRoute: Routes.SignUpRoute,
+              initialRoute:
+                  Routes.splashRoute
+              // initialRoute: Routes.SignUpRoute,
             ),
           ),
     );
   }
 }
+// await  SharedPrefsUtils.saveData(key: 'isLoggedIn', value: true);

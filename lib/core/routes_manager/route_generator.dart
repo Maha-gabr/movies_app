@@ -8,6 +8,7 @@ import '../../features/auth/ui/register/register_screen.dart';
 import '../../features/main_layout/main_layout.dart';
 import '../../features/main_layout/on_boarding/on_boarding.dart';
 import '../../features/main_layout/update_profile_screen/update_profile_screen.dart';
+import '../../features/splash/splash_screen.dart';
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -30,6 +31,8 @@ class RouteGenerator {
             );
       case Routes.updateProfileRoute:
         return MaterialPageRoute(builder: (_) => const UpdateProfileScreen());
+      case Routes.splashRoute:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
 
 
       default:

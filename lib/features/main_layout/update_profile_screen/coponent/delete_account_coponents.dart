@@ -116,8 +116,10 @@ MyUser myUser,
                                     () => errorText = 'Wrong-Password');
                             return;
                           }
-                          Navigator.pop(context);
                           await authCubit.deleteAccount(passController.text.trim());
+                          Navigator.pop(context);
+
+
                         },
                         style: TextButton.styleFrom(
                           backgroundColor: const Color(0xFFA32D2D),

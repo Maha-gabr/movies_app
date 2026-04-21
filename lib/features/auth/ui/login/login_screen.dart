@@ -97,9 +97,10 @@ class _LoginScreenState extends State<LoginScreen> {
                CustomElevatedButton(
                 text: 'Login',
                 textStyle: AppTextStyle.regBlack16,
-                onTap: (){
+                onTap: ()  async {
                   if(key.currentState!.validate()){
-                    context.read<AuthCubit>().signIn(email: emailController.text, password: passController.text);
+                  await context.read<AuthCubit>().signIn(email: emailController.text, password: passController.text);
+                    // await SharedPrefsUtils.saveData(key: "isLoggedIn", value: true);
 
                   }
               },
@@ -107,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 24.h,),
               AuthRedirectTextWidget(
                 onTap: (){
-                Navigator.pop(context);
+                Navigator.pushNamed(context, Routes.SignUpRoute);
               },text: 'Don’t Have Account ?' ,loginOrRegister: 'Create One',),
               SizedBox(height: 24.h,),
               CustomDividerCustom(),
@@ -116,8 +117,9 @@ class _LoginScreenState extends State<LoginScreen> {
                      text: ' Login With Google ',
                      haveIcon: true,
                      iconImagePath: AppAssets.googleIcon,
-                     onTap: (){
-                       context.read<AuthCubit>().signInWithGoogle();
+                     onTap: () async {
+                     await context.read<AuthCubit>().signInWithGoogle();
+                       // await SharedPrefsUtils.saveData(key: "isLoggedIn", value: true);
                      },
                      textStyle: AppTextStyle.regBlack16,
                    ),
